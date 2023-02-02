@@ -1,0 +1,41 @@
+@use 'sass:math';
+@import '../../styles/settings.scss';
+
+.weatherSummary {
+  display: flex;
+  flex-wrap: wrap;
+  margin: ($base-size * 3) ($base-size * 3);
+  background: $color-light;
+  border-radius: $radius;
+  box-shadow: $box-shadow;
+  padding: $base-size $base-size;
+  position: relative;
+  color: $color-dark;
+  align-items: center;
+  justify-content: center;
+
+  .weatherIcon {
+    margin: 0 $base-size * 2;
+  }
+
+  .weatherInfo {
+    flex-grow: 1;
+
+    h2 {
+      font-size: $base-size * 3;
+      margin: $base-size 0;
+    }
+  
+    p {
+      font-size: $base-size * 2;
+    }
+
+  }
+
+}
+
+@media (max-width: 768px) {
+  .weatherInfo {
+    text-align: center;
+  }
+}

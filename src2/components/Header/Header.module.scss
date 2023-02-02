@@ -1,0 +1,8 @@
+@import '../../styles/settings.scss';
+
+.title {
+  padding: ($base-size * 3) 0;
+  text-align: center;
+  font-size: ($base-size * 3);
+  text-transform: uppercase;
+}

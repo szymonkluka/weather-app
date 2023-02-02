@@ -1,0 +1,7 @@
+@import '../../styles/settings.scss';
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: ($base-size * 4) 0;
+}

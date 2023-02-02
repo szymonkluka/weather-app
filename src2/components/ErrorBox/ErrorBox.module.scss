@@ -1,0 +1,19 @@
+@import '../../styles/settings.scss';
+
+.errorBox {
+  margin: ($base-size * 3) auto;
+  background: $color-warning;
+  border-radius: $radius;
+  box-shadow: $box-shadow;
+  padding: $base-size $base-size;
+  position: relative;
+  color: $color-light;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: $base-size * 30;
+
+  span {
+    margin-right: $base-size;
+  }
+}
