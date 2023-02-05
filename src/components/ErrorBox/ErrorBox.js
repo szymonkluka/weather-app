@@ -1,4 +1,3 @@
-
 import styles from './ErrorBox.module.scss';
 
 const ErrorBox = () => {
@@ -14,6 +13,5 @@ const ErrorBox = () => {
     </div>
   );
 };
-
 
 export default ErrorBox;

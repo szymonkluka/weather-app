@@ -2,17 +2,15 @@ import PickCity from '../PickCity/PickCity';
 import WeatherSummary from '../WeatherSummary/WeatherSummary';
 import Loader from '../Loader/Loader';
 import ErrorBox from '../ErrorBox/ErrorBox';
+import { useState } from 'react';
 
-import { useCallback, useState } from 'react';
+const WeatherBox = () => {
 
-const WeatherBox = props => {
+  const [weatherData, setWeatherData] = useState(false);
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState(false);
 
-  const [weather, setWeather] = useState('');
-  const [pending, setPending] = useState('');
-  const [error, setError] = useState('');
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const handleCityChange = useCallback(city => {
+  const handleCityChange = (city => {
     setError(false);
     setPending(true);
 
@@ -29,25 +27,20 @@ const WeatherBox = props => {
                 description: data.weather[0].main
               };
               setPending(false)
-              setWeather(weatherData)
-              console.log(weatherData)
+              setWeatherData(weatherData)
             })
         } else {
-
           setError(true);
         }
-
       })
   });
 
   return (
     <section>
       <PickCity action={handleCityChange} />
-      {weather && !pending && <WeatherSummary {...weather} />}
+      {weatherData && !pending && <WeatherSummary {...weatherData} />}
       {pending && !error && <Loader />}
       {error && <ErrorBox />}
-
-
     </section>
   )
 };
