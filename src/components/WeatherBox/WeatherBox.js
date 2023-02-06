@@ -2,15 +2,15 @@ import PickCity from '../PickCity/PickCity';
 import WeatherSummary from '../WeatherSummary/WeatherSummary';
 import Loader from '../Loader/Loader';
 import ErrorBox from '../ErrorBox/ErrorBox';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 const WeatherBox = () => {
 
-  const [weatherData, setWeatherData] = useState(false);
+  const [weatherData, setWeatherData] = useState();
   const [pending, setPending] = useState(false);
   const [error, setError] = useState(false);
 
-  const handleCityChange = (city => {
+  const handleCityChange = useCallback((city) => {
     setError(false);
     setPending(true);
 
@@ -33,7 +33,7 @@ const WeatherBox = () => {
           setError(true);
         }
       })
-  });
+  }, []);
 
   return (
     <section>
